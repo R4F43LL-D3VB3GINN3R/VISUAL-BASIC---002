@@ -1,3 +1,5 @@
+Imports System.ComponentModel
+
 Public Class Form3
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -11,11 +13,19 @@ Public Class Form3
         n = Val(TextBox1.Text)
         n2 = Val(TextBox2.Text)
 
-        Do While n <= n2
-            MessageBox.Show(n)
-            n += 1
-        Loop
-
+        If n < n2 Then
+            Do While n <= n2
+                MessageBox.Show(n)
+                n += 1
+            Loop
+        ElseIf n > n2 Then
+            Do While n >= n2
+                MessageBox.Show(n)
+                n -= 1
+            Loop
+        Else
+            MessageBox.Show("Insira números diferentes")
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -30,11 +40,18 @@ Public Class Form3
         n = Val(TextBox1.Text)
         n2 = Val(TextBox2.Text)
 
-        For i = n To n2
-            MessageBox.Show(i)
-        Next i
+        If n < n2 Then
+            For i = n To n2
+                MessageBox.Show(i)
+            Next i
+        ElseIf n > n2 Then
+            For i = n To n2 Step -1
+                MessageBox.Show(i)
+            Next i
+        Else
+            MessageBox.Show("Insira números diferentes")
+        End If
 
     End Sub
 
 End Class
-
